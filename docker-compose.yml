@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+  web:
+
+    # https://docs.docker.com/glossary/?term=build
+    # > build is the process of building Docker images using a Dockerfile. The build uses a Dockerfile and a “context”. The context is the set of files in the directory in which the image is built.
+    build: .
+
+    # https://docs.docker.com/compose/compose-file/#command
+    # > Override the default command.
+    command: ["./docker-entrypoint.sh"]
+
+    # https://docs.docker.com/compose/compose-file/#volumes
+    # > Mount host paths or named volumes, specified as sub-options to a service.
+    volumes:
+      - .:/app
+
+    # https://docs.docker.com/compose/compose-file/#ports
+    # > Forwards the exposed port 3000 on the container to port 3000 on the host machine. We use the default port for the Flask web server, 3000.
+    ports:
+      - "3000:3000"
