@@ -43,7 +43,7 @@ Run following command(s):
 
 Sit back and grab a cup of :coffee: because it’ll take awhile.
 
-- Open [http://localhost:4200/](http://localhost:4200/) ✨
+- Open [http://localhost:3000/](http://localhost:3000/) ✨
 
 ## Destroy
 
