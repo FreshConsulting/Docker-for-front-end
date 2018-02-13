@@ -45,6 +45,15 @@ Sit back and grab a cup of :coffee: because it’ll take awhile.
 
 - Open [http://localhost:3000/](http://localhost:3000/) ✨
 
+## Install new packages
+
+What’s the point of container if we still `npm intall` packages from host machine with a node version different from what’s inside the container?
+
+You can execute a command to use your container’s npm to install new packages that is also reflected back in your host machine to check-in.
+
+- Get your container ID with `docker ps -a`
+- Install your package `docker exec <container_id> npm install <package>`
+
 ## Destroy
 
 You can destroy Docker container with:
