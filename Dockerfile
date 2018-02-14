@@ -14,17 +14,25 @@ WORKDIR /app
 # > The ADD instruction copies new files, directories or remote file URLs from <src> and adds them to the filesystem of the image at the path <dest>.
 ADD . /app
 
-### DEPLOYMENT ###
-
-# https://docs.docker.com/engine/reference/builder/#expose
-# > The EXPOSE instruction informs Docker that the container listens on the specified network ports at runtime. You can specify whether the port listens on TCP or UDP, and the default is TCP if the protocol is not specified.
-EXPOSE 5000
+# https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
+# https://docs.docker.com/engine/reference/builder/#copy
+# > The COPY instruction copies new files or directories from <src> and adds them to the filesystem of the container at the path <dest>.
+COPY package*.json ./
 
 # https://docs.docker.com/engine/reference/builder/#run
 # > The RUN instruction will execute any commands in a new layer on top of the current image and commit the results. The resulting committed image will be used for the next step in the Dockerfile.
 RUN npm install
+
+### DEPLOYMENT ###
+
+# https://docs.docker.com/engine/reference/builder/#expose
+# > The EXPOSE instruction informs Docker that the container listens on the specified network ports at runtime. You can specify whether the port listens on TCP or UDP, and the default is TCP if the protocol is not specified.
+EXPOSE 3000
+
+# https://docs.docker.com/engine/reference/builder/#run
+# > The RUN instruction will execute any commands in a new layer on top of the current image and commit the results. The resulting committed image will be used for the next step in the Dockerfile.
 RUN npm run build
 
 # https://docs.docker.com/engine/reference/builder/#cmd
 # > The main purpose of a CMD is to provide defaults for an executing container. These defaults can include an executable, or they can omit the executable, in which case you must specify an ENTRYPOINT instruction as well.
-CMD ["npx", "serve", "-s", "build"]
+CMD ["npx", "serve", "--port", "3000", "-s", "build"]

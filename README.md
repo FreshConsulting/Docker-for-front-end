@@ -80,9 +80,9 @@ Create a new app using Dokku command:
 
 - `dokku apps:create <APP>`
 
-Expose the port defined in Dockefile, which is 5000 in this example.
+Expose the port defined in Dockefile, which is 3000 in this example.
 
-- `dokku proxy:ports-add <APP> http:80:5000 http:5000:5000`
+- `dokku proxy:ports-add <APP> http:80:3000 http:3000:3000`
 
 Git push the latest code up to the remote:
 
