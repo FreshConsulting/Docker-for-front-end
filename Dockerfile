@@ -10,10 +10,6 @@ FROM node:latest
 # > The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile. If the WORKDIR doesn’t exist, it will be created even if it’s not used in any subsequent Dockerfile instruction.
 WORKDIR /app
 
-# https://docs.docker.com/engine/reference/builder/#add
-# > The ADD instruction copies new files, directories or remote file URLs from <src> and adds them to the filesystem of the image at the path <dest>.
-ADD . /app
-
 # https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
 # https://docs.docker.com/engine/reference/builder/#copy
 # > The COPY instruction copies new files or directories from <src> and adds them to the filesystem of the container at the path <dest>.
@@ -22,6 +18,10 @@ COPY package*.json ./
 # https://docs.docker.com/engine/reference/builder/#run
 # > The RUN instruction will execute any commands in a new layer on top of the current image and commit the results. The resulting committed image will be used for the next step in the Dockerfile.
 RUN npm install
+
+# https://docs.docker.com/engine/reference/builder/#add
+# > The ADD instruction copies new files, directories or remote file URLs from <src> and adds them to the filesystem of the image at the path <dest>.
+ADD . /app
 
 ### DEPLOYMENT ###
 
