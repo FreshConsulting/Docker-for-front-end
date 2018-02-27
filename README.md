@@ -52,7 +52,7 @@ What’s the point of container if we still `npm intall` packages from host mach
 You can execute a command to use your container’s npm to install new packages that is also reflected back in your host machine to check-in.
 
 - Get your container ID with `docker ps -a`
-- Install your package `docker exec <container_id> npm install <package>`
+- Install your package `docker-compose exec <service_name> npm install <package>`
 
 ## Destroy
 
